@@ -26,8 +26,8 @@ pipeline {
                 $class: 'KubernetesEngineBuilder',
                 projectId: env.PROJECT_ID,
                 clusterName: env.CLUSTER_NAME,
-                location: env.LOCATION
-                manifestPattern: 'compile.yml',
+                location: env.LOCATION,
+                manifestPattern: 'compiled.yml',
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: false
                 ])
