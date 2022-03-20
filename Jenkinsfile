@@ -27,7 +27,7 @@ pipeline {
                 projectId: env.PROJECT_ID,
                 clusterName: env.CLUSTER_NAME,
                 location: env.LOCATION
-                manifestPattern: 'compile.yml'
+                manifestPattern: 'compile.yml',
                 credentialsId: env.CREDENTIALS_ID,
                 verifyDeployments: false
                 ])
