@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash
+  namespace: monitoring
+  labels:
+    app: logstash
+data:
+  logstash.yml: |-
+    http.host: "0.0.0.0"
+    path.config: /usr/share/logstash/pipeline
+    xpack.monitoring.enabled: true
+    xpack.monitoring.elasticsearch.hosts: "http://elasticsearch-svc:9200"
+    xpack.monitoring.elasticsearch.sniffing: true
+  pipeline.conf: |-
+    input {
+      beats {
+        port => 5044
+      }
+    }
+    output {
+      elasticsearch {
+        hosts => ['http://elasticsearch-svc:9200']
+        index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+      }
+      stdout { 
+        codec => rubydebug 
+      }
+    }
