@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stag('Compile manifests'){
+        stage('Compile manifests'){
             steps{
             sh """ kubectl kustomize . > compile.yml  """
             }
