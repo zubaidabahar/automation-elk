@@ -4,7 +4,7 @@ pipeline {
         PROJECT_ID = ''
         CLUSTER_NAME = ''
         LOCATION = ''
-        CREDENTIALS_ID = ''
+        CREDENTIALS_ID = credentials('automation')
     }
 
     stages {
