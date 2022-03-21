@@ -49,7 +49,7 @@ pipeline {
             steps{
             sh """
                 pip3 install -U pytest 
-                python3 -m unittest discover -s /tests -t /tests
+                pytest tests/test_infrastructure.py
                 """
             }
          }
