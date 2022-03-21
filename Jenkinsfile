@@ -48,7 +48,8 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                bat "pytest tests/test_infrastructure.py"
+                pip3 intall pytest-randomly
+                pytest --junitxml=report.xml
                 """
             }
          }
