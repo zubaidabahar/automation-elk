@@ -34,18 +34,7 @@ pipeline {
             }
         }
 
-        stage ('Prepare for Testing'){
-        steps {
-            script{
-                withCredentials([file(credentialsId: 'service-account', variable: 'service_account')]){
-                    sh """
-                        cp \$service_account support/gcp_sa.json
-                        chmod 640 support/gcp_sa.json
-                       """
-                }
-            }
-        }
-        }
+       
         stage("Install Requirements"){
             steps{
             sh """
