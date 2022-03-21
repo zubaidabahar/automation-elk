@@ -49,7 +49,7 @@ pipeline {
             steps{
             sh """
                 pip3 install pytest
-                pytest /tests/test_infrastructure.py
+                pytest --junitxml=report.xml
                 """
             }
          }
