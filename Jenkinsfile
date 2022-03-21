@@ -40,7 +40,6 @@ pipeline {
             sh """
                 python3 -m venv env
                 . env/bin/activate
-                pip install pytest
                 pip3 install -r requirements.txt
                 """
             }
@@ -49,6 +48,7 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
+                pip install pytest
                 pytest /tests/test_infrastructure.py
                 """
             }
