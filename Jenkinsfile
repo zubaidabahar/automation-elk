@@ -48,7 +48,7 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                pip3 install pytest-randomly
+                pip install -U pytest
                 pytest --junitxml=report.xml
                 """
             }
