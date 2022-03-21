@@ -49,7 +49,7 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                pytest --junitxml=report.xml
+                pytest /tests/test_infrastructure.py
                 """
             }
          }
