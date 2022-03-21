@@ -48,7 +48,7 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                pip install pytest
+                pip3 install pytest
                 pytest /tests/test_infrastructure.py
                 """
             }
