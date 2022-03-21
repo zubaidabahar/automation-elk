@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = eloquent-ratio-344711'
+        PROJECT_ID = 'eloquent-ratio-344711'
         CLUSTER_NAME = 'elk-autmation'
         LOCATION = 'ús-central1-c'
         CREDENTIALS_ID = credentials('automation-elk')
