@@ -35,11 +35,12 @@ pipeline {
         }
 
        
-        stage("Install Requirements"){
+        stage("Prepare for testing"){
             steps{
             sh """
                 python3 -m venv env
                 . env/bin/activate
+                pip install pytest
                 pip3 install -r requirements.txt
                 """
             }
