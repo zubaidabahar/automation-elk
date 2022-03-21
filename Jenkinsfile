@@ -48,7 +48,7 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                python3 -m pytest discover -s ./tests/infrastructure -t ./tests
+                python3 -m pytest discover -s ./tests -t ./tests
                 """
             }
          }
