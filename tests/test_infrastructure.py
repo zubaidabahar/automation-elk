@@ -25,11 +25,11 @@ def test_03_test_deployment():
     client.Configuration.set_default(configuration)
     v1 = client.ExtensionsV1beta1Api()
     deployment = v1.list_namespaced_deployment(namespace)
-    assert(len(deployment.items), 1)
+    assert_that(len(deployment.items)).is_greater_than(1)
 
 def test_04_test_services():
     client.Configuration.set_default(configuration)
     v1 = client.CoreV1Api()
     services = v1.list_namespaced_service(namespace)
-    assert (len(services.items), 4)
+    assert_that(len(services.items)).is_greater_than(2)
 

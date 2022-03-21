@@ -48,7 +48,6 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                . env/bin/activate
                 pytest --junitxml=report.xml
                 """
             }
