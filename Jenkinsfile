@@ -48,8 +48,7 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                pip3 install pytest
-                python -m pytest /tests/test_infrastructure.py
+                python3 -m pytest discover -s ./tests/infrastructure -t ./tests
                 """
             }
          }
