@@ -48,8 +48,7 @@ pipeline {
         stage("Infrastructure test"){
             steps{
             sh """
-                pip3 install -U pytest
-                pytest --junitxml=report.xml
+                pip3 install -U pytest --junitxml=report.xml
                 """
             }
          }
