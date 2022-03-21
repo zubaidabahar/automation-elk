@@ -1,0 +1,12 @@
+google==2.0.3
+google-api-core==1.15.0
+google-auth==1.10.0
+google-cloud-container==0.3.0
+googleapis-common-protos==1.6.0
+oauthlib==3.1.0
+kubernetes==10.0.1
+junit-xml==1.9
+py==1.10.0
+pytest==6.2.4
+requests==2.26.0
+assertpy==1.1

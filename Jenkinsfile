@@ -16,7 +16,7 @@ pipeline {
 
         stage('Compile manifests'){
             steps{
-            sh """ kubectl kustomize . > compile.yml  """
+            sh """ kubectl kustomize . > compiled.yml  """
             }
         }
 
@@ -33,6 +33,35 @@ pipeline {
                 ])
             }
         }
+
+        stage ('Prepare for Testing'){
+        steps {
+            script{
+                withCredentials([file(credentialsId: 'service-account', variable: 'service_account')]){
+                    sh """
+                        cp \$service_account support/gcp_sa.json
+                        chmod 640 support/gcp_sa.json
+                       """
+                }
+            }
+        }
+        }
+        stage("Install Requirements"){
+            steps{
+            sh """
+                pip3 install -r requirements.txt
+                """
+            }
+         }
+
+        stage("Infrastructure test"){
+            steps{
+            sh """
+                . env/bin/activate
+                pytest --junitxml=report.xml
+                """
+            }
+         }
 
     }
 
