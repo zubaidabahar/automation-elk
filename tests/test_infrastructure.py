@@ -3,9 +3,14 @@ from google.oauth2 import service_account
 from google.cloud.container import ClusterManagerClient
 from support.config_sa import project_id, region, cluster_name, namespace
 from kubernetes import client
+import os
+
+
+dir = os.path.dirname(__file__)
+sa_file = os.path.join(dir, 'gcp_sa_test.json')
 
 SCOPES = ['https://www.googleapis.com/auth/cloud-platform']
-credentials = service_account.Credentials.from_service_account_file('./gcp_sa_test.json', scopes=SCOPES)
+credentials = service_account.Credentials.from_service_account_file(sa_file, scopes=SCOPES)
 cluster_manager_client = ClusterManagerClient(credentials=credentials)
 cluster = cluster_manager_client.get_cluster(project_id, region, cluster_name)
 configuration = client.Configuration()
