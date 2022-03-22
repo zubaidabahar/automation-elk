@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: elasticsearch-svc
-  namespace: monitoring
+  namespace: automation-challenge
   labels:
     app: elasticsearch
 spec:
@@ -20,7 +20,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: elasticsearch
-  namespace: monitoring
+  namespace: automation-challenge
 spec:
   serviceName: elasticsearch
   replicas: 3
