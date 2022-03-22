@@ -5,7 +5,7 @@ from support.config_sa import project_id, region, cluster_name, namespace
 from kubernetes import client
 
 SCOPES = ['https://www.googleapis.com/auth/cloud-platform']
-credentials = service_account.Credentials.from_service_account_file('gcp_sa_test.json', scopes=SCOPES)
+credentials = service_account.Credentials.from_service_account_file('./gcp_sa_test.json', scopes=SCOPES)
 cluster_manager_client = ClusterManagerClient(credentials=credentials)
 cluster = cluster_manager_client.get_cluster(project_id, region, cluster_name)
 configuration = client.Configuration()
