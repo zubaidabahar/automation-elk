@@ -35,24 +35,19 @@ pipeline {
         }
 
        
-        stage("Prepare for testing"){
+        stage("Infrastructure Testing"){
             steps{
             sh """
                 python3 -m venv env
                 . env/bin/activate
                 pip3 install -r requirements.txt
+                pip3 install -U pytest 
+                pytest --junitxml=report.xml
                 """
             }
          }
 
-        stage("Infrastructure test"){
-            steps{
-            sh """
-                pip3 install -U pytest 
-                pytest tests/test_infrastructure.py
-                """
-            }
-         }
+        
 
     }
 
