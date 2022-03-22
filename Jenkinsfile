@@ -34,34 +34,20 @@ pipeline {
             }
         }
 
-        stage ('Prepare for Testing'){
-        steps {
-            script{
-                withCredentials([file(credentialsId: 'service-account', variable: 'service_account')]){
-                    sh """
-                        cp \$service_account support/gcp_sa.json
-                        chmod 640 support/gcp_sa.json
-                       """
-                }
-            }
-        }
-        }
-        stage("Install Requirements"){
+       
+        stage("Infrastructure Testing"){
             steps{
             sh """
+                python3 -m venv env
+                . env/bin/activate
                 pip3 install -r requirements.txt
+                pip3 install -U pytest 
+                pytest tests/test_infrastructure.py
                 """
             }
          }
 
-        stage("Infrastructure test"){
-            steps{
-            sh """
-                . env/bin/activate
-                pytest --junitxml=report.xml
-                """
-            }
-         }
+        
 
     }
 
