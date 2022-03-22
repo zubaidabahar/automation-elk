@@ -42,7 +42,7 @@ pipeline {
                 . env/bin/activate
                 pip3 install -r requirements.txt
                 pip3 install -U pytest 
-                pytest --junitxml=report.xml
+                pytest tests/test_infrastructure.py
                 """
             }
          }
