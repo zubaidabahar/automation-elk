@@ -43,6 +43,7 @@ pipeline {
                 pip3 install -r requirements.txt
                 pip3 install -U pytest 
                 pytest tests/test_infrastructure.py
+                pytest --junitxml=report.xml
                 """
             }
          }
