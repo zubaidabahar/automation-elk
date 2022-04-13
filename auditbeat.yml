@@ -86,9 +86,6 @@ spec:
           limits:
             cpu: 500m
             memory: 200Mi
-          requests:
-            cpu: 50m
-            memory: 100Mi
         volumeMounts:
         - name: config
           mountPath: /etc/auditbeat.yml

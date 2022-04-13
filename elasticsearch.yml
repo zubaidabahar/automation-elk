@@ -23,7 +23,7 @@ metadata:
   namespace: automation-challenge
 spec:
   serviceName: elasticsearch
-  replicas: 3
+  replicas: 2
   updateStrategy:
     type: RollingUpdate
   selector:
@@ -53,9 +53,6 @@ spec:
             limits:
               cpu: 1000m
               memory: 1G
-            requests:
-              cpu: 100m
-              memory: 512m
         ports:
         - containerPort: 9200
           name: http
