@@ -48,6 +48,7 @@ kind: Deployment
 metadata:
   name: kibana
   namespace: automation-challenge
+  kubernetes.io/cluster-service: "true"
   labels:
     app: kibana
 spec:
