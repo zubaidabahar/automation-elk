@@ -55,10 +55,6 @@ spec:
       containers:
       - name: apm-server
         image: docker.elastic.co/apm/apm-server:7.6.0
-        resources:
-            limits:
-              memory: "512M"
-              cpu: 1000m
         ports:
         - containerPort: 8200
           name: http

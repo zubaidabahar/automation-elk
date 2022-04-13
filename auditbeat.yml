@@ -82,10 +82,6 @@ spec:
           value: "9200"
         securityContext:
           runAsUser: 0
-        resources:
-          limits:
-            cpu: 500m
-            memory: 200Mi
         volumeMounts:
         - name: config
           mountPath: /etc/auditbeat.yml
