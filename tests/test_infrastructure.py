@@ -26,6 +26,8 @@ def test_02_get_cluster_name():
     print(cluster.name)
     assert_that(cluster.name).is_equal_to(cluster_name)
 
+
+"""
 def test_03_test_deployment():
     client.Configuration.set_default(configuration)
     v1 = client.ExtensionsV1beta1Api()
@@ -39,4 +41,5 @@ def test_04_test_services():
     services = v1.list_namespaced_service(namespace)
     serv_length = len(services.items)
     assert_that(serv_length).is_greater_than(2)
+"""
 
