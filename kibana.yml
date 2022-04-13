@@ -4,7 +4,6 @@ metadata:
   name: kibana-svc
   namespace: automation-challenge
   kubernetes.io/cluster-service: "true"
-  addonmanager.kubernetes.io/mode: Reconcile
   labels:
     app: kibana
 spec:
@@ -20,7 +19,6 @@ metadata:
   name: kibana-lb
   namespace: automation-challenge
   kubernetes.io/cluster-service: "true"
-  addonmanager.kubernetes.io/mode: Reconcile
   labels:
     app: kibana
 spec:
@@ -53,7 +51,6 @@ metadata:
   name: kibana
   namespace: automation-challenge
   kubernetes.io/cluster-service: "true"
-  addonmanager.kubernetes.io/mode: Reconcile
   labels:
     app: kibana
 spec:
