@@ -4,7 +4,7 @@ pipeline {
         PROJECT_ID = 'eloquent-ratio-344711'
         CLUSTER_NAME = 'elk-automation'
         LOCATION = 'us-central1-c'
-        CREDENTIALS_ID = 'automation-elk'
+        CREDENTIALS_ID = 'elk-automation'
     }
 
     stages {
