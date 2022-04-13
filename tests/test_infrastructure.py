@@ -18,6 +18,7 @@ configuration.host = "https://" + cluster.endpoint + ":443"
 configuration.api_key = {"authorization": "Bearer " + credentials.token}
 client.Configuration.set_default(configuration)
 
+# Tests
 def test_01_test_cluster_connection():
     print(cluster)
 
