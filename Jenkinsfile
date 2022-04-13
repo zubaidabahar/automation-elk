@@ -3,7 +3,7 @@ pipeline {
     environment {
         PROJECT_ID = 'eloquent-ratio-344711'
         CLUSTER_NAME = 'elk-automation'
-        LOCATION = 'us-central1-c'
+        LOCATION = 'us-central1-b'
         CREDENTIALS_ID = 'elk-automation'
     }
 
