@@ -30,7 +30,7 @@ def test_02_get_cluster_name():
     assert_that(cluster.name).is_equal_to(cluster_name)
 
 
-
+"""
 def test_03_list_all_pods():
     config.load_kube_config()
 
@@ -48,6 +48,8 @@ def test_04_test_services():
    services = v1.list_namespaced_service(namespace=namespace)
    serv_length = len(services.items)
    assert_that(serv_length).is_greater_than(2)
+"""
+
 
 
 
