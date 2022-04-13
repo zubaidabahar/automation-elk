@@ -23,7 +23,7 @@ metadata:
   namespace: automation-challenge
 spec:
   serviceName: elasticsearch
-  replicas: 2
+  replicas: 1
   updateStrategy:
     type: RollingUpdate
   selector:
@@ -121,4 +121,4 @@ spec:
       storageClassName: standard
       resources:
         requests:
-          storage: 500Gi
+          storage: 10Gi
