@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: kibana-svc
   namespace: automation-challenge
-  kubernetes.io/cluster-service: "true"
   labels:
     app: kibana
 spec:
@@ -18,7 +17,6 @@ kind: Service
 metadata:
   name: kibana-lb
   namespace: automation-challenge
-  kubernetes.io/cluster-service: "true"
   labels:
     app: kibana
 spec:
