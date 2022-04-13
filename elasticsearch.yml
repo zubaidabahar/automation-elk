@@ -23,7 +23,7 @@ metadata:
   namespace: automation-challenge
 spec:
   serviceName: elasticsearch
-  replicas: 1
+  replicas: 3
   updateStrategy:
     type: RollingUpdate
   selector:
@@ -49,6 +49,13 @@ spec:
       containers:
       - name: elasticsearch
         image: docker.elastic.co/elasticsearch/elasticsearch:7.6.0
+        resources:
+            limits:
+              cpu: 1000m
+              memory: 1G
+            requests:
+              cpu: 100m
+              memory: 512m
         ports:
         - containerPort: 9200
           name: http
@@ -114,12 +121,11 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: data
-      annotations:
-        volume.beta.kubernetes.io/storage-class: "standard"
       labels:
         app: elasticsearch
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: standard
       resources:
         requests:
-          storage: 10Gi
+          storage: 500Gi

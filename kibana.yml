@@ -48,7 +48,6 @@ kind: Deployment
 metadata:
   name: kibana
   namespace: automation-challenge
-  kubernetes.io/cluster-service: "true"
   labels:
     app: kibana
 spec:
@@ -67,6 +66,10 @@ spec:
         resources:
           limits:
             cpu: 1000m
+            memory: 512M
+          requests:
+            cpu: 50m
+            memory: 256M
         env:
           - name: SERVER_UUID
             valueFrom:
