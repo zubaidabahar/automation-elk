@@ -1,8 +1,10 @@
+from distutils.command.config import config
+
 from assertpy import assert_that
 from google.oauth2 import service_account
 from google.cloud.container import ClusterManagerClient
 from support.config_sa import project_id, region, cluster_name, namespace
-from kubernetes import client
+from kubernetes import client, config
 import os
 
 
@@ -28,19 +30,26 @@ def test_02_get_cluster_name():
     assert_that(cluster.name).is_equal_to(cluster_name)
 
 
-"""
-def test_03_test_deployment():
-    client.Configuration.set_default(configuration)
-    v1 = client.ExtensionsV1beta1Api()
-    deployment = v1.list_namespaced_deployment(namespace)
-    dep_length = len(deployment.items)
-    assert_that(dep_length).is_greater_than(0)
+
+def test_03_list_all_pods():
+    config.load_kube_config()
+
+    v1 = client.CoreV1Api()
+    print("Listing pods with their IPs:")
+    ret = v1.list_namespaced_pod(namespace=namespace)
+    for i in ret.items:
+        print("%s\t%s\t%s" % (i.status.pod_ip, i.metadata.namespace, i.metadata.name))
+
 
 def test_04_test_services():
-    client.Configuration.set_default(configuration)
-    v1 = client.CoreV1Api()
-    services = v1.list_namespaced_service(namespace)
-    serv_length = len(services.items)
-    assert_that(serv_length).is_greater_than(2)
-"""
+   config.load_kube_config()
+
+   v1 = client.CoreV1Api()
+   services = v1.list_namespaced_service(namespace=namespace)
+   serv_length = len(services.items)
+   assert_that(serv_length).is_greater_than(2)
+
+
+
+
 
